@@ -10,14 +10,27 @@ namespace LearningVariables
     {
         static void Main()
         {
-            string greeting = "Hello, user!";
-            int playerScore = 0;
-            string displayScore = "Your score currently is " + playerScore + ".";
+            string greeting = "Hello, user! The game's start condition is: ";
+            bool gameStarted = false;
+            string displayGameState = greeting + gameStarted;
+            Console.WriteLine(displayGameState);
 
-            Console.WriteLine(greeting);
-            Console.WriteLine(displayScore);
+            gameStarted = true;
+            displayGameState = greeting + gameStarted;
+            Console.WriteLine(displayGameState);
             Console.ReadKey();
 
+
+            string thirstQuenched = "I have had my coffee today: ";
+            bool coffeeDrank = true;
+            string showThirstyStatus = thirstQuenched + coffeeDrank;
+            Console.WriteLine(showThirstyStatus);
+            Console.ReadKey();
+
+          
         }
+
+       
+            
     }
 }
