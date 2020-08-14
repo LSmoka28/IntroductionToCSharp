@@ -13,6 +13,9 @@ namespace LoopsExercise
             int numberOfDogs = 0;
             int score = 0;
 
+            string dogFoodUnit;
+
+
             while (numberOfDogs < 10)
             {
                // adds one dog every loop
@@ -30,15 +33,30 @@ namespace LoopsExercise
                     {
                         break;
                     }
+
                 }
             }
 
             // adds one bag of dog food every loop
             for (int bagsOfDogFood = 1; bagsOfDogFood <= 20 ; bagsOfDogFood++)
-            {
-                Console.WriteLine("You have " + bagsOfDogFood + " bags of dog food.");
+            {   
+
+                if (bagsOfDogFood == 1)
+                    dogFoodUnit = "bag";
+                else
+                    dogFoodUnit = "bags";
+
+                Console.WriteLine("You have " + bagsOfDogFood + " "+ dogFoodUnit + " of dog food.");
             }
             Console.ReadKey();
+
+
+            
+}
+              
+
+
+           
         }
     }
-}
+
