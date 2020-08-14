@@ -1,0 +1,34 @@
+1. Describe what a loop is:
+
+	A loop is a piece of code that runs until a certain condition is met.
+
+
+2. Write an example of a while loop:
+
+	int i = 0;
+
+	while(i < 10)
+		{ 
+			i++;
+		}
+
+
+3. Write an example of a for loop:
+
+	for(int i = 10; i<20; i++)
+		{
+			Console.WriteLine("The value i is now " + i + ".")
+		}
+
+
+
+4. What does the word break do when used inside a loop?
+
+	Break cancels out of the loop at a specified point to execute a new line of code
+
+
+5. What are loops generally used for?
+
+	Loops are used to make repeating ceratin actions easier. Like in video games, making a bunch of the same object or character do the same action mulitple times.
+
+
