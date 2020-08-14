@@ -34,6 +34,8 @@ namespace LoopsExercise
                         break;
                     }
 
+                    
+
                 }
             }
 
@@ -50,13 +52,13 @@ namespace LoopsExercise
             }
             Console.ReadKey();
 
-
+        }
             
-}
+    }
               
 
 
            
-        }
-    }
+        
+    
 
