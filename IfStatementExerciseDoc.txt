@@ -1,0 +1,43 @@
+1. Try and describe an if statement:
+	An if statement if a conditional statement where a block of code gets executed IF a certain condition is met as TRUE.
+
+2. What happens if the condition of an if statement is true?
+	The code block beneath gets executed.
+
+
+3. Describe how else statements work:
+	If the "if" statement returns the value of false, then the code block attche to "else" will execute.
+
+
+4. Describe how else if statements work:
+	Else if will execute a second/ seperate condition if the first if statement returns false.
+
+
+5. In a series of if and else if statements, if the first if statement condition is true, and there
+are 3 else if statements after it, how many of those else if statements will check their
+conditions? Why?
+	Only the first IF statement gets executed becasue the following statements only happen when the IF statement returns a boolean value of FALSE.
+
+
+
+6. Can you give an example of a nested if statement?
+	
+	bool playerDead = false;
+		
+	if (playerHealth == 0)
+		{
+		playerDead = true;
+			if {playerDead == true)
+				{
+				Console.WriteLine("You are deceased.");
+				}
+
+		}
+
+
+7. What does the <= Less Then Or Equal relational operator do?
+	The <= (less then or equal) operator compares the left-hand operand to see if the value if less than or equal to that of the right-hand operand.
+
+8. What does the != Not Equal relational operator do?
+	The != (not equal) operator swaps the boolean value of the operand
+
