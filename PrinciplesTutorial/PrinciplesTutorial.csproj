@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4344490E-54C7-4D2C-8443-65A342C6552B}</ProjectGuid>
+    <ProjectGuid>{FE7F7E8D-CF32-491E-B85F-0CE222BEBC7A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MyFirstApp</RootNamespace>
-    <AssemblyName>MyFirstApp</AssemblyName>
+    <RootNamespace>PrinciplesTutorial</RootNamespace>
+    <AssemblyName>PrinciplesTutorial</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LearningVariables.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

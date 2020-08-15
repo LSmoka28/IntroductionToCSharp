@@ -1,0 +1,31 @@
+1. What does the word “public” in a function mean?
+	
+	Makes the function available elsewhere in the class, not just one instance.
+
+
+2. What is the purpose of giving a function a name?
+
+	To make it easily accessible throught its use.
+
+3. What can you put in the () parentheses of the function?
+
+	Arguments for variables so that the method only runs if the condition is true
+
+4. What does the return value do in a function?
+
+	Exits the method
+
+
+5. How would you describe a functions purpose?
+
+
+
+6. What can you do with values that you return from functions?
+
+
+
+7. What is the naming convention called for functions?
+
+
+
+8. What functions might you add to a game object (i.e., a class) representing the player?
