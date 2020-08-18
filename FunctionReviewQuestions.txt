@@ -5,27 +5,32 @@
 
 2. What is the purpose of giving a function a name?
 
-	To make it easily accessible throught its use.
+	To make it easily accessible throught its use by naming it something related to the method.
 
 3. What can you put in the () parentheses of the function?
 
-	Arguments for variables so that the method only runs if the condition is true
+	Parameters for the method. Has the ability to create temporary variables used inside of the function
 
 4. What does the return value do in a function?
 
-	Exits the method
+	Exits the method and returns a value if neccassary. can void so that no value is returned 
 
 
 5. How would you describe a functions purpose?
-
+	
+	Store a piece of code meant to repeat a specific process. Makes it easier to use the code again without having to repeat it
 
 
 6. What can you do with values that you return from functions?
 
-
+	Depending on the type of value returned, input from the user can be obtained, returned, and output an action for the user.
 
 7. What is the naming convention called for functions?
 
-
+		Pascal Case
 
 8. What functions might you add to a game object (i.e., a class) representing the player?
+
+	 I think any functions pertaining to the input from the user would be important inside the player class
+
+	
