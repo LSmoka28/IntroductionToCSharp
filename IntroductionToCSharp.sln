@@ -21,11 +21,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinciplesTutorial", "Princ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessGame2", "GuessGame2\GuessGame2.csproj", "{5AD14F38-4FD6-428D-A03A-449893DB2047}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassExercise", "ClassExercise\ClassExercise.csproj", "{E6C1CB3C-38C1-4E5A-B8B3-C98E5BC59E18}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesExercisePart2", "ClassesExercisePart2\ClassesExercisePart2.csproj", "{76D78500-873C-47BE-95D4-DEB8466B8E16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassAndArrayExercise", "ClassAndArrayExercise\ClassAndArrayExercise.csproj", "{FA60A843-F2F8-42CC-AF47-F5AF7E1938E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysExercise", "ArraysExercise\ArraysExercise.csproj", "{91497A6A-36FC-4C7A-80F2-DEA3B9270ACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedProject", "ObjectOrientedProject\ObjectOrientedProject.csproj", "{842CB274-4A4D-49E4-9C31-20AEFF586CD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,10 +71,6 @@ Global
 		{5AD14F38-4FD6-428D-A03A-449893DB2047}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AD14F38-4FD6-428D-A03A-449893DB2047}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AD14F38-4FD6-428D-A03A-449893DB2047}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6C1CB3C-38C1-4E5A-B8B3-C98E5BC59E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6C1CB3C-38C1-4E5A-B8B3-C98E5BC59E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6C1CB3C-38C1-4E5A-B8B3-C98E5BC59E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6C1CB3C-38C1-4E5A-B8B3-C98E5BC59E18}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76D78500-873C-47BE-95D4-DEB8466B8E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76D78500-873C-47BE-95D4-DEB8466B8E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76D78500-873C-47BE-95D4-DEB8466B8E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,6 +79,14 @@ Global
 		{FA60A843-F2F8-42CC-AF47-F5AF7E1938E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA60A843-F2F8-42CC-AF47-F5AF7E1938E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA60A843-F2F8-42CC-AF47-F5AF7E1938E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91497A6A-36FC-4C7A-80F2-DEA3B9270ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91497A6A-36FC-4C7A-80F2-DEA3B9270ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91497A6A-36FC-4C7A-80F2-DEA3B9270ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91497A6A-36FC-4C7A-80F2-DEA3B9270ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

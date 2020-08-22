@@ -1,0 +1,24 @@
+1. Is each of the following a valid or invalid array definition? (If a definition is invalid, explain
+why) Try to answer first before using Visual Studio - then check your answers using Visual
+Studio to see if you understand why something worked or didn’t.
+
+int[] numbers = new int[10] { 0, 0, 1, 0, 0, 1, 0, 0, 1, 1 };
+int[] matrix = new int[5] { 1, 2, 3, 4, 5, 6, 7 };
+double[] radii = new double[10] (3.2, 4.7};
+int[] table = new int[7] { 2, , , 27, , 45, 39 };
+char[] codes = { 'A', 'X', '1', '2', 's' };
+int[] blanks;
+int[] collection = new int[-20];
+int[] hours = new int[3] 8, 12, 16;
+
+
+
+Given the following code what output would you expect?
+
+int[] values = {2, 6, 10, 14};
+Console.WriteLine(values[2]);
+Console.WriteLine(++values[0]);
+Console.WriteLine(++values[0]);
+int x = 2;
+Console.WriteLine(values[++x]);
+Console.WriteLine(values[4]);
