@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysExercise", "ArraysExe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedProject", "ObjectOrientedProject\ObjectOrientedProject.csproj", "{842CB274-4A4D-49E4-9C31-20AEFF586CD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack", "Blackjack\Blackjack.csproj", "{CC95B04B-88F7-4DCD-A9D2-6D36DC3D7E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeConversion", "TypeConversion\TypeConversion.csproj", "{5F38F38F-BF69-429D-B6E5-452AD9839938}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{842CB274-4A4D-49E4-9C31-20AEFF586CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC95B04B-88F7-4DCD-A9D2-6D36DC3D7E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC95B04B-88F7-4DCD-A9D2-6D36DC3D7E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC95B04B-88F7-4DCD-A9D2-6D36DC3D7E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC95B04B-88F7-4DCD-A9D2-6D36DC3D7E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F38F38F-BF69-429D-B6E5-452AD9839938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F38F38F-BF69-429D-B6E5-452AD9839938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F38F38F-BF69-429D-B6E5-452AD9839938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F38F38F-BF69-429D-B6E5-452AD9839938}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
