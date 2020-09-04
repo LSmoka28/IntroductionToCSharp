@@ -1,24 +1,33 @@
+Larry Hurley
+Array Review Questions
+
 1. Is each of the following a valid or invalid array definition? (If a definition is invalid, explain
 why) Try to answer first before using Visual Studio - then check your answers using Visual
-Studio to see if you understand why something worked or didn’t.
+Studio to see if you understand why something worked or didn’t
 
-int[] numbers = new int[10] { 0, 0, 1, 0, 0, 1, 0, 0, 1, 1 };
+int[] numbers = new int[10] { 0, 0, 1, 0, 0, 1, 0, 0, 1, 1 }; is a valid array
 int[] matrix = new int[5] { 1, 2, 3, 4, 5, 6, 7 };
+	invalid. You cant define the array with more indexes than you initialized it with
 double[] radii = new double[10] (3.2, 4.7};
+	invalid. The array is initialized with 10 and only 2 values have been defined
 int[] table = new int[7] { 2, , , 27, , 45, 39 };
+	invalid. Values need to defined. Cannot have empty index
 char[] codes = { 'A', 'X', '1', '2', 's' };
+invalid. Needs to be initialized with a new char[] before the values are defined
 int[] blanks;
+	invalid. Needs to be initialized with new int[]
 int[] collection = new int[-20];
+	invalid. Cannot have negative array index
 int[] hours = new int[3] 8, 12, 16;
+	invalid. Need {} around the value definition
 
-
-
+question 2 on next page
 Given the following code what output would you expect?
 
 int[] values = {2, 6, 10, 14};
-Console.WriteLine(values[2]);
-Console.WriteLine(++values[0]);
-Console.WriteLine(++values[0]);
+Console.WriteLine(values[2]);  will output 10
+Console.WriteLine(++values[0]); will output 3
+Console.WriteLine(++values[0]); will output 4
 int x = 2;
-Console.WriteLine(values[++x]);
-Console.WriteLine(values[4]);
+Console.WriteLine(values[++x]); will print out 14
+Console.WriteLine(values[4]); will not print anything. Error: outside of array bounds

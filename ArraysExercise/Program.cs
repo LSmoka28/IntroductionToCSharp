@@ -8,19 +8,19 @@ namespace ArraysExercise
 {
     class Program
     {
+        public static  int gamesPlayed = 0;
+        //static int[] data = new int[11];
+        //static int[] reverseArray = new int[4];
+        //static int[] customArr = new int[5];
+        //static int[,] gridArr =
+        //   {
+        //        {1,2,3},
+        //        {4,5,6},
+        //        {7,8,9}
+        //    };
+        //static int[,] days = new int[29, 5];
 
-        static int[] data = new int[11];
-        static int[] reverseArray = new int[4];
-        static int[] customArr = new int[5];
-        static int[,] gridArr =
-           {
-                {1,2,3},
-                {4,5,6},
-                {7,8,9}
-            };
-        static int[,] days = new int[29, 5];
-        
-        
+
 
         #region Sum Of Rows Method
         //method for finding the sum of rows
@@ -142,25 +142,50 @@ namespace ArraysExercise
             #endregion
 
             #region Problem 7
-            Random random = new Random();
-            
+            //Random random = new Random();
 
-            for (int i = 0; i < 29; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    days[i, j] = random.Next(1, 30);
-                    Console.Write("{0} ", days[i, j]);
-                }
-                    Console.WriteLine("");              
-            }
 
-            
+            //for (int i = 0; i < 29; i++)
+            //{
+            //    for (int j = 0; j < 5; j++)
+            //    {
+            //        days[i, j] = random.Next(1, 30);
+            //        Console.Write("{0} ", days[i, j]);
+            //    }
+            //        Console.WriteLine("");              
+            //}
+            //RowSum(days);
+            //ColomnSum(days);
 
-            RowSum(days);
-            ColomnSum(days);
+
+
 
             #endregion
+
+
+            
+            bool gameRunning = true;
+            Problem8 prob = new Problem8();
+
+
+
+            while (gameRunning)
+            {
+                prob.UserInput();
+                prob.AttackPlayer();
+                gamesPlayed++;
+
+                if (gamesPlayed == 5)
+                {
+                    Console.WriteLine("Game Over");
+                    gameRunning = false;
+                }
+
+                   
+            }
+
+
+
 
             Console.ReadKey();
         }
