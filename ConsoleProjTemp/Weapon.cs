@@ -18,5 +18,11 @@ namespace ConsoleProjTemp
         public string rarity;
         public int price;
 
+
+        public override string ToString()
+        {
+            return $"____________________\n- {name} -\nType: {type}\nDescription:\n{info}\nDamage: {attackPwr} pts\nRarity: {rarity}\nCost: {price} units\n";
+        }
+
     }
 }

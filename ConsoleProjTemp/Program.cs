@@ -26,6 +26,10 @@ namespace ConsoleProjTemp
 
                 switch (input)
                 {
+
+                    case "show bag":
+                    case "show inv":
+                    case "bag":
                     case "inv":
                         foreach (Weapon weap in shopInventory)
                         {
