@@ -16,6 +16,11 @@ namespace ConsoleProjTemp
         public string rarity;
         public int price;
 
-        // TODO: make seperate class for shield and body armor
+
+        public override string ToString()
+        {
+            return $"____________________\n- {name} -\nType: {type}\nDescription:\n{info}\nDefense: {defense} pts\nRarity: {rarity}\nCost: {price} units\n";
+        }
+        
     }
 }

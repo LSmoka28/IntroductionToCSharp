@@ -10,46 +10,105 @@ namespace ConsoleProjTemp
 {
     class Program
     {
+        // set the player and shop bank amount
+        public int shopBank;
+        public int playerBank;
+
+        // TODO: set up player array 
+        // TODO: create method transfer data between player and shop 
+
+
+
+
         static void Main(string[] args)
         {
+            //load csvs of inventory
             Weapon[] shopInventory = LoadWeapon("WeaponsSpread1.csv");
+            Armor[] shopArmor = LoadArmor("armor.csv");
+           
             bool gameRunning = true;
 
-
+            //store intro message
             Console.WriteLine("Welcome to Fantasy Fanatics!");
-            Console.WriteLine("Please make a selection...");
+            Console.WriteLine("What would you like to do?");
 
            while (gameRunning)
             {
-                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("Please make a selection...");
                 string input = Console.ReadLine();
 
+                // input command cases
                 switch (input)
                 {
-
-                    case "show bag":
-                    case "show inv":
-                    case "bag":
-                    case "inv":
+                    // shop and show weapons
+                    case "show weap":
+                    case "weapons":
+                    case "weap":
+                        Console.WriteLine($"\n----WEAPONS----\n     vvvvv    ");
                         foreach (Weapon weap in shopInventory)
                         {
                             Console.WriteLine(weap);
                         }
+                        Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
                         break;
+
+                    // shop and show armor
+                    case "armor":
+                    case "shield":
+                    case "defense":
+                        Console.WriteLine($"\n----ARMOR----\n     vvv    ");
+                        foreach (Armor suit in shopArmor)
+                        {
+                            Console.WriteLine(suit);
+                        }
+                        Console.WriteLine($"\n     ^^^    \n----ARMOR----\n");
+                        break;
+
+                    //full shop inventory
+                    case "shop":
+                        Console.WriteLine($"\n----WEAPONS----\n     vvvvv    ");
+                        foreach (Weapon weap in shopInventory)
+                        {
+                            Console.WriteLine(weap);
+                        }
+                        Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
+                        Console.WriteLine($"\n----ARMOR----\n     vvv    ");
+                        foreach (Armor suit in shopArmor)
+                        {
+                            Console.WriteLine(suit);
+                        }
+                        Console.WriteLine($"\n     ^^^    \n----ARMOR----\n");
+                        break;
+
+
+                    // help commands and instructions 
+                    // TODO: add instructions 
+                    case "help":
+                    case "commands":
+                    case "inputs":
+                        Console.WriteLine($"__________________\nThe current valid commands you can type in are:\n" +
+                            $"-armor, shield, defense - shows current shop armor inventory \n" +
+                            $"-bag, i, inv, inventory, - shows current player inventory \n" +
+                            $"-weapons, show weap - shows current shop weapon inventory \n" +
+                            $"-shop, buy, purchase - shows the full available inventory \n" +
+                            $"-help, commands, inputs - shows the help screen \n" +
+                            $"-quit, leave, bye - closes the shop and window \n");
+                        break;
+
+                    // quit and esc commands
+                    case "esc":
+                    case "quit":
+                    case "leave":
+                    case "bye":
+                        Console.WriteLine($"Thanks for shopping with us! Please come again.");
+                        gameRunning = false;
+                        break;
+
+
+
 
                 }
             }
-
-
-
-            // selelction options: 
-            //shop- show inv of shop keeper and prompt player to view or buy
-            //---- view- shows weapon/armor stats
-            //-------weapon - displays name, type, attack power, rarity, and cost
-            //-------armor  - displays name, type, shield power, rarity, and cost
-            //inv- show inventory and wallet of player
-            //sell- show current inv and prompt player for a selection
-            //
 
             Console.ReadKey();
         }
@@ -105,6 +164,59 @@ namespace ConsoleProjTemp
                     tmpArr[i - 1] = tmpRanged;
                 }
 
+            }
+            return tmpArr;
+        }
+
+        private static Armor[] LoadArmor(string filename)
+        {
+            Armor[] tmpArr;
+
+            string[] lines = File.ReadAllLines(filename);
+
+            tmpArr = new Armor[lines.Length - 1];
+            for (int i =1; i < lines.Length; i++)
+            {
+                string[] lineVal = lines[i].Split(',');
+                if (lineVal[1] == "Body")
+                {
+                    BodySuit tmpBody = new BodySuit();
+                    tmpBody.name = lineVal[0];
+                    tmpBody.type = lineVal[1];
+                    tmpBody.info = lineVal[2];
+                    tmpBody.rarity = lineVal[4];
+
+                    if (lineVal[3] != "")
+                    {
+                        int.TryParse(lineVal[3], out tmpBody.defense);
+                    }
+                    if (lineVal[5] != "")
+                    {
+                        int.TryParse(lineVal[5], out tmpBody.price);
+                    }
+                    tmpArr[i - 1] = tmpBody;
+                }
+
+                else
+                {
+                    Shield tmpShield = new Shield();
+                    tmpShield.name = lineVal[0];
+                    tmpShield.type = lineVal[1];
+                    tmpShield.info = lineVal[2];
+                    tmpShield.rarity = lineVal[4];
+
+                    if (lineVal[3] != "")
+                    {
+                        int.TryParse(lineVal[3], out tmpShield.defense);
+                    }
+                    if (lineVal[5] != "")
+                    {
+                        int.TryParse(lineVal[5], out tmpShield.price);
+                    }
+                    tmpArr[i - 1] = tmpShield;
+
+                }
+                
             }
             return tmpArr;
         }
