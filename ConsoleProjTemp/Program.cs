@@ -28,18 +28,15 @@ namespace ConsoleProjTemp
 
 
 
-
         static void Main(string[] args)
         {
-            
             Weapon.WeaponStruct[] shopWeapInv;
             Armor.ArmorStruct[] shopArmorInv;
 
             // create an empty list to add armor and weapons from shop
             List<Weapon.WeaponStruct> myWeaps = new List<Weapon.WeaponStruct>();
             List<Player.ArmorInv> myArmors = new List<Player.ArmorInv>();
-
-
+            
 
             using (var reader = new StreamReader("WeaponsSpread1.csv"))
             {
@@ -62,6 +59,7 @@ namespace ConsoleProjTemp
             List<Weapon.WeaponStruct> weaponList = shopWeapInv.ToList<Weapon.WeaponStruct>();
             List<Armor.ArmorStruct> armorList = shopArmorInv.ToList<Armor.ArmorStruct>();
             
+            
 
 
             //load csvs of inventory
@@ -76,7 +74,7 @@ namespace ConsoleProjTemp
             
 
             while (gameRunning)
-           {
+            {
                 Console.WriteLine("Please make a selection...");
                 string input = Console.ReadLine();
 
@@ -129,18 +127,35 @@ namespace ConsoleProjTemp
                                     $"Rarity: {tmpWeap.Rarity}\n" +
                                     $"Cost: {tmpWeap.Price} units\n");
                                 weaponNumber = 0;
+                                    if (playerBank <= 0)
+                                    {
+                                        playerBank = 0;
+                                        Console.WriteLine($"Uh oh! You don't have any money left..\nPlease sell something or come back when you arent broke!");
+                                        break;
+                                    }
                                 Console.WriteLine("Would you like to buy this weapon?");
                                 input = Console.ReadLine();
                                 if (input == "y" || input == "Y")
                                 {
-                                    weaponList.Remove(tmpWeap);
-                                    myWeaps.Add(tmpWeap);
-                                                                      
-                                    playerBank -= tmpWeap.Price;
-                                    shopBank += tmpWeap.Price;
                                     
-                                    Console.WriteLine($"You now own {tmpWeap.Name}\nYou currently have {playerBank} unit left in your bank\n");
-                                    
+                                    if (playerBank < tmpWeap.Price)
+                                    {
+
+                                        Console.WriteLine($"Hey! You dont have any enough units left to purchase that!\n");
+                                        Console.WriteLine($"You have {playerBank} units and this item is {tmpWeap.Price}");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        weaponList.Remove(tmpWeap);
+                                        myWeaps.Add(tmpWeap);
+
+                                        playerBank -= tmpWeap.Price;
+                                        shopBank += tmpWeap.Price;
+
+
+                                        Console.WriteLine($"You now own {tmpWeap.Name}\nYou currently have {playerBank} unit left in your bank\n");
+                                    }
                                 }
                                 if (input == "n" || input == "N")
                                 {
@@ -538,7 +553,7 @@ namespace ConsoleProjTemp
                     case "shop":
                         Console.WriteLine($"\n");
                         Console.WriteLine($"\n----WEAPONS----\n     vvvvv    \n");
-                        foreach (Weapon.WeaponStruct tmpWeap in shopWeapInv)
+                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
                         {
 
                             Console.WriteLine($"-{tmpWeap.Name}-\n_______________");
@@ -547,7 +562,7 @@ namespace ConsoleProjTemp
                         Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
                         Console.WriteLine($"\n");
                         Console.WriteLine($"\n----ARMOR----\n     vvv    \n");
-                        foreach (Armor.ArmorStruct tmpArmor in shopArmorInv)
+                        foreach (Armor.ArmorStruct tmpArmor in armorList)
                         {
 
                             Console.WriteLine($"-{tmpArmor.Name}-\n_______________");
@@ -589,10 +604,15 @@ namespace ConsoleProjTemp
 
 
                
-           }
+            }
 
             Console.ReadKey();
         }
+        
+
+
+
+
         //private static Weapon[] LoadWeapon(string filename)
         //{
         //    Weapon[] tmpArr;
@@ -698,7 +718,7 @@ namespace ConsoleProjTemp
         //            tmpArr[i - 1] = tmpShield;
 
         //        }
-                
+
         //    }
         //    return tmpArr;
         //}
