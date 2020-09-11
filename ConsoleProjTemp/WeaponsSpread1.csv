@@ -1,4 +1,4 @@
-﻿WeaponName,WeaponType,Description,AttackPower,Rarity,Cost
+﻿Name,Type,Info,AttackPwr,Rarity,Price
 Gjallarhorn,Ranged,A legendary relic of the past. Shoots tracking multiple rockets that spawn cluster bombs on impact,85,Exotic,250
 Red Shell,Ranged,A turtle shell. Dangerous if thrown. Beware of the bounceback,100,Mystical,400
 BFG 9000,Ranged,Stands for Bio Force Gun.. or at least that’s what I was told to say. Shoots a plasma ball that disintigrates everything in its path,100,Legendary,350

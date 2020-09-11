@@ -1,26 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace ConsoleProjTemp
 {
-    class Weapon
+    class Player
     {
-        //-------weapon - displays name, type, info, attack power, rarity, and cost
-        public string name;
-        public string type;
-        public string info;
-        public int attackPwr;
-        public string rarity;
-        public int price;
-
-
-
-        public struct WeaponStruct
+        public struct WeaponInv
         {
             private string name;
             private string type;
@@ -37,10 +25,22 @@ namespace ConsoleProjTemp
             public int Price { get => price; set => price = value; }
         }
 
-        //public override string ToString()
-        //{
-        //    return $"____________________\n- {name} -\nType: {type}\nDescription:\n{info}\nDamage: {attackPwr} pts\nRarity: {rarity}\nCost: {price} units\n";
-        //}
+        public struct ArmorInv
+        {
+            private string name;
+            private string type;
+            private string info;
+            private int defense;
+            private string rarity;
+            private int price;
+
+            public string Name { get => name; set => name = value; }
+            public string Type { get => type; set => type = value; }
+            public string Info { get => info; set => info = value; }
+            public int Defense { get => defense; set => defense = value; }
+            public string Rarity { get => rarity; set => rarity = value; }
+            public int Price { get => price; set => price = value; }
+        }
 
     }
 }
