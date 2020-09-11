@@ -19,6 +19,7 @@ namespace ConsoleProjTemp
 
         // TODO: set up player array 
         // TODO: create method transfer data between player and shop 
+        // TODO: remove unused classes
         static public int weaponNumber = 0;
         static public int armorNumber = 0;
 
@@ -35,7 +36,7 @@ namespace ConsoleProjTemp
             Armor.ArmorStruct[] shopArmorInv;
 
             // create an empty list to add armor and weapons from shop
-            List<Player.WeaponInv> myWeaps = new List<Player.WeaponInv>();
+            List<Weapon.WeaponStruct> myWeaps = new List<Weapon.WeaponStruct>();
             List<Player.ArmorInv> myArmors = new List<Player.ArmorInv>();
 
 
@@ -90,12 +91,27 @@ namespace ConsoleProjTemp
                         Console.WriteLine($"\n----WEAPONS----\n     vvvvv    \n");
                         foreach (Weapon.WeaponStruct tmpWeap in weaponList)
                         {
+
                             weaponNumber++;
                             Console.WriteLine($"-{tmpWeap.Name}- {weaponNumber}\n_______________");
 
                         }
                         weaponNumber = 0;
                         Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
+                        break;
+
+                    case "inv":
+                        Console.WriteLine($"\n----MY INVENTORY----\n     vvvvvvvv    \n");
+                        foreach (Weapon.WeaponStruct myInv in myWeaps)
+                        {
+                            Console.WriteLine($"____________________\n- {myInv.Name} -\n" +
+                                    $"Type: {myInv.Type}\n" +
+                                    $"Description:\n{myInv.Info}\n" +
+                                    $"Damage: {myInv.AttackPwr} pts\n" +
+                                    $"Rarity: {myInv.Rarity}\n" +
+                                    $"Cost: {myInv.Price} units\n");
+                        }
+                        Console.WriteLine($"\n     ^^^^^^^^    \n----MY INVENTORY----\n");
                         break;
 
                     #region weaponNumber Cases
@@ -118,7 +134,7 @@ namespace ConsoleProjTemp
                                 if (input == "y" || input == "Y")
                                 {
                                     weaponList.Remove(tmpWeap);
-
+                                    myWeaps.Add(tmpWeap);
                                                                       
                                     playerBank -= tmpWeap.Price;
                                     shopBank += tmpWeap.Price;
@@ -148,7 +164,25 @@ namespace ConsoleProjTemp
                                     $"Rarity: {tmpWeap.Rarity}\n" +
                                     $"Cost: {tmpWeap.Price} units\n");
                                 weaponNumber = 0;
+                                Console.WriteLine("Would you like to buy this weapon?");
+                                input = Console.ReadLine();
+                                if (input == "y" || input == "Y")
+                                {
+                                    weaponList.Remove(tmpWeap);
+                                    myWeaps.Add(tmpWeap);
+
+                                    playerBank -= tmpWeap.Price;
+                                    shopBank += tmpWeap.Price;
+
+                                    Console.WriteLine($"You now own {tmpWeap.Name}\n\nYou currently have {playerBank} unit left in your bank\n");
+
+                                }
+                                if (input == "n" || input == "N")
+                                {
+                                    break;
+                                }
                                 break;
+
                             }
 
                         }
