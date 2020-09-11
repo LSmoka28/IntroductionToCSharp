@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Armor.cs" />
     <Compile Include="BodySuit.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Melee.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

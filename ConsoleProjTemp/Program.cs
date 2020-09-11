@@ -84,269 +84,54 @@ namespace ConsoleProjTemp
                     // shop and show weapons
                     case "show weap":
                     case "weapons":
-                    case "weap":                    
-                        Console.WriteLine($"\n");
-                        Console.WriteLine($"\n----WEAPONS----\n     vvvvv    \n");
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-
-                            weaponNumber++;
-                            Console.WriteLine($"-{tmpWeap.Name}- {weaponNumber}\n_______________");
-
-                        }
-                        weaponNumber = 0;
-                        Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
+                    case "weap":
+                        ShowWeapons(weaponList);
                         break;
 
                     case "inv":
-                        Console.WriteLine($"\n----MY INVENTORY----\n     vvvvvvvv    \n");
-                        foreach (Weapon.WeaponStruct myInv in myWeaps)
-                        {
-                            Console.WriteLine($"____________________\n- {myInv.Name} -\n" +
-                                    $"Type: {myInv.Type}\n" +
-                                    $"Description:\n{myInv.Info}\n" +
-                                    $"Damage: {myInv.AttackPwr} pts\n" +
-                                    $"Rarity: {myInv.Rarity}\n" +
-                                    $"Cost: {myInv.Price} units\n");
-                        }
-                        Console.WriteLine($"\n     ^^^^^^^^    \n----MY INVENTORY----\n");
+                        PlayerInventory(myWeaps);
                         break;
 
                     #region weaponNumber Cases
                     case "w1":
                         //view weapon 1 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 1)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                    if (playerBank <= 0)
-                                    {
-                                        playerBank = 0;
-                                        Console.WriteLine($"Uh oh! You don't have any money left..\nPlease sell something or come back when you arent broke!");
-                                        break;
-                                    }
-                                Console.WriteLine("Would you like to buy this weapon?");
-                                input = Console.ReadLine();
-                                if (input == "y" || input == "Y")
-                                {
-                                    
-                                    if (playerBank < tmpWeap.Price)
-                                    {
-
-                                        Console.WriteLine($"Hey! You dont have any enough units left to purchase that!\n");
-                                        Console.WriteLine($"You have {playerBank} units and this item is {tmpWeap.Price}");
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        weaponList.Remove(tmpWeap);
-                                        myWeaps.Add(tmpWeap);
-
-                                        playerBank -= tmpWeap.Price;
-                                        shopBank += tmpWeap.Price;
-
-
-                                        Console.WriteLine($"You now own {tmpWeap.Name}\nYou currently have {playerBank} unit left in your bank\n");
-                                    }
-                                }
-                                if (input == "n" || input == "N")
-                                {
-                                    break;
-                                }
-                                break;
-                            }                          
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w2":
                         //view weapon 2 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 2)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                Console.WriteLine("Would you like to buy this weapon?");
-                                input = Console.ReadLine();
-                                if (input == "y" || input == "Y")
-                                {
-                                    weaponList.Remove(tmpWeap);
-                                    myWeaps.Add(tmpWeap);
-
-                                    playerBank -= tmpWeap.Price;
-                                    shopBank += tmpWeap.Price;
-
-                                    Console.WriteLine($"You now own {tmpWeap.Name}\n\nYou currently have {playerBank} unit left in your bank\n");
-
-                                }
-                                if (input == "n" || input == "N")
-                                {
-                                    break;
-                                }
-                                break;
-
-                            }
-
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w3":
                         //view weapon 3 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 3)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                            
-
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w4":
                         //view weapon 4 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 4)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w5":
                         //view weapon 5 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 5)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w6":
                         //view weapon 6 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 6)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w7":
                         //view weapon 7 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 7)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w8":
                         //view weapon 8 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 8)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w9":
                         //view weapon 9 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 9)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     case "w10":
                         //view weapon 10 and all its details 
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-                            weaponNumber++;
-                            if (weaponNumber == 10)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                                    $"Type: {tmpWeap.Type}\n" +
-                                    $"Description:\n{tmpWeap.Info}\n" +
-                                    $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                                    $"Rarity: {tmpWeap.Rarity}\n" +
-                                    $"Cost: {tmpWeap.Price} units\n");
-                                weaponNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndPurchase(weaponList, myWeaps);
                         break;
                     #endregion
 
@@ -354,16 +139,7 @@ namespace ConsoleProjTemp
                     case "armor":
                     case "shield":
                     case "defense":
-                        Console.WriteLine($"\n");
-                        Console.WriteLine($"\n----ARMOR----\n     vvv    \n");
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            Console.WriteLine($"-{tmpArmor.Name}- {armorNumber}\n_______________");
-
-                        }
-                        armorNumber = 0;
-                        Console.WriteLine($"\n     ^^^    \n----ARMOR----\n");
+                        ShowArmor(armorList);
                         break;
 
                     #region armorNumber Cases
@@ -551,28 +327,10 @@ namespace ConsoleProjTemp
 
                     //full shop inventory, no buying
                     case "shop":
-                        Console.WriteLine($"\n");
-                        Console.WriteLine($"\n----WEAPONS----\n     vvvvv    \n");
-                        foreach (Weapon.WeaponStruct tmpWeap in weaponList)
-                        {
-
-                            Console.WriteLine($"-{tmpWeap.Name}-\n_______________");
-
-                        }
-                        Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
-                        Console.WriteLine($"\n");
-                        Console.WriteLine($"\n----ARMOR----\n     vvv    \n");
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-
-                            Console.WriteLine($"-{tmpArmor.Name}-\n_______________");
-
-                        }
-                        Console.WriteLine($"\n     ^^^    \n----ARMOR----\n");
+                        ShowWeapons(weaponList);
+                        ShowArmor(armorList);
                         break;
                     
-
-
                     // help commands and instructions 
                     // TODO: add instructions 
                     case "help":
@@ -608,10 +366,120 @@ namespace ConsoleProjTemp
 
             Console.ReadKey();
         }
-        
 
 
 
+        static public void ShowWeapons(List<Weapon.WeaponStruct> weaponList)
+        {
+            Console.WriteLine($"\n");
+            Console.WriteLine($"\n----WEAPONS----\n     vvvvv    \n");
+            foreach (Weapon.WeaponStruct tmpWeap in weaponList)
+            {
+
+                weaponNumber++;
+                Console.WriteLine($"-{tmpWeap.Name}- {weaponNumber}\n_______________");
+
+            }
+            weaponNumber = 0;
+            Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
+
+            if (playerBank <= 0)
+            {
+                playerBank = 0;
+                Console.WriteLine($"Uh oh! You don't have any units left..\nPlease sell something or come back when you have some more units!");
+                
+            }
+        }
+
+        static public void ShowArmor(List<Armor.ArmorStruct> armorList)
+        {
+            Console.WriteLine($"\n");
+            Console.WriteLine($"\n----ARMOR----\n     vvv    \n");
+            foreach (Armor.ArmorStruct tmpArmor in armorList)
+            {
+                armorNumber++;
+                Console.WriteLine($"-{tmpArmor.Name}- {armorNumber}\n_______________");
+
+            }
+            armorNumber = 0;
+            Console.WriteLine($"\n     ^^^    \n----ARMOR----\n");
+
+            if (playerBank <= 0)
+            {
+                playerBank = 0;
+                Console.WriteLine($"Uh oh! You don't have any money left..\nPlease sell something or come back when you aren't broke!");
+                
+            }
+        }
+
+        static public void PlayerInventory(List<Weapon.WeaponStruct> myWeaps)
+        {
+            Console.WriteLine($"\n----MY INVENTORY----\n     vvvvvvvv    \n");
+            foreach (Weapon.WeaponStruct myInv in myWeaps)
+            {
+                Console.WriteLine($"____________________\n- {myInv.Name} -\n" +
+                        $"Type: {myInv.Type}\n" +
+                        $"Description:\n{myInv.Info}\n" +
+                        $"Damage: {myInv.AttackPwr} pts\n" +
+                        $"Rarity: {myInv.Rarity}\n" +
+                        $"Cost: {myInv.Price} units\n");
+            }
+            Console.WriteLine($"\n     ^^^^^^^^    \n----MY INVENTORY----\n");
+        }
+
+        static public void ViewAndPurchase(List<Weapon.WeaponStruct> weaponList, List<Weapon.WeaponStruct> myWeaps)
+        {
+            foreach (Weapon.WeaponStruct tmpWeap in weaponList)
+            {
+                weaponNumber++;
+                if (weaponNumber == 1)
+                {
+                    Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
+                        $"Type: {tmpWeap.Type}\n" +
+                        $"Description:\n{tmpWeap.Info}\n" +
+                        $"Damage: {tmpWeap.AttackPwr} pts\n" +
+                        $"Rarity: {tmpWeap.Rarity}\n" +
+                        $"Cost: {tmpWeap.Price} units\n");
+                    weaponNumber = 0;
+                    if (playerBank <= 0)
+                    {
+                        playerBank = 0;
+                        Console.WriteLine($"Uh oh! You don't have any money left..\nPlease sell something or come back when you aren't broke!");
+                        break;
+                    }
+                    Console.WriteLine("Would you like to buy this weapon?");
+                    string input = Console.ReadLine();
+                    if (input != "y")
+                        break;
+                    if (input == "y" || input == "Y")
+                    {
+                        if (playerBank < tmpWeap.Price)
+                        {
+
+                            Console.WriteLine($"Hey! You dont have any enough units left to purchase that!");
+                            Console.WriteLine($"You have {playerBank} units and this item is {tmpWeap.Price}");
+                            break;
+                        }
+                        else
+                        {
+                            weaponList.Remove(tmpWeap);
+                            myWeaps.Add(tmpWeap);
+
+                            playerBank -= tmpWeap.Price;
+                            shopBank += tmpWeap.Price;
+
+
+                            Console.WriteLine($"You now own {tmpWeap.Name}\nYou currently have {playerBank} units left in your bank\n");
+                            break;
+                        }
+                    }
+                    if (input == "n" || input == "N")
+                    {
+                        break;
+                    }
+                }
+            }
+        }
 
         //private static Weapon[] LoadWeapon(string filename)
         //{

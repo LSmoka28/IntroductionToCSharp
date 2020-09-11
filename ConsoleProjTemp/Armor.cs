@@ -7,15 +7,8 @@ using System.IO;
 
 namespace ConsoleProjTemp
 {
-    class Armor
+    class Armor : Item
     {
-        public string name;
-        public string type;
-        public string info;
-        public int defense;
-        public string rarity;
-        public int price;
-
         public struct ArmorStruct
         {
             private string name;
