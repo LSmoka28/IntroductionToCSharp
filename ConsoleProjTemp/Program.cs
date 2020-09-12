@@ -35,7 +35,7 @@ namespace ConsoleProjTemp
 
             // create an empty list to add armor and weapons from shop
             List<Weapon.WeaponStruct> myWeaps = new List<Weapon.WeaponStruct>();
-            List<Player.ArmorInv> myArmors = new List<Player.ArmorInv>();
+            List<Armor.ArmorStruct> myArmors = new List<Armor.ArmorStruct>();
             
 
             using (var reader = new StreamReader("WeaponsSpread1.csv"))
@@ -69,13 +69,13 @@ namespace ConsoleProjTemp
             bool gameRunning = true;
 
             //store intro message
-            Console.WriteLine("Welcome to Fantasy Fanatics!");
-            Console.WriteLine("What would you like to do?");
+            Prompt("Welcome to Fantasy Fanatics!");
+            Prompt("What would you like to do?");
             
 
             while (gameRunning)
             {
-                Console.WriteLine("Please make a selection...");
+                Prompt("Please make a selection...");
                 string input = Console.ReadLine();
 
                 // input command cases
@@ -89,49 +89,51 @@ namespace ConsoleProjTemp
                         break;
 
                     case "inv":
-                        PlayerInventory(myWeaps);
+                        PlayerArmorInv(myArmors);
+                        PlayerWeaponInv(myWeaps);
                         break;
 
                     #region weaponNumber Cases
                     case "w1":
                         //view weapon 1 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+
+                        ViewAndBuyWeapon(weaponList, myWeaps, 1);
                         break;
                     case "w2":
                         //view weapon 2 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps, 2);
                         break;
                     case "w3":
                         //view weapon 3 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps, 3);
                         break;
                     case "w4":
                         //view weapon 4 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps, 4);
                         break;
                     case "w5":
                         //view weapon 5 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps, 5);
                         break;
                     case "w6":
                         //view weapon 6 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps,6);
                         break;
                     case "w7":
                         //view weapon 7 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps,7);
                         break;
                     case "w8":
                         //view weapon 8 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps,8);
                         break;
                     case "w9":
                         //view weapon 9 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps,9);
                         break;
                     case "w10":
                         //view weapon 10 and all its details 
-                        ViewAndPurchase(weaponList, myWeaps);
+                        ViewAndBuyWeapon(weaponList, myWeaps,10);
                         break;
                     #endregion
 
@@ -145,185 +147,54 @@ namespace ConsoleProjTemp
                     #region armorNumber Cases
                     case "a1":
                         //view armor 1 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {                                                
-                            armorNumber++;
-                            if (armorNumber == 1)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 1);
                         break;
                     case "a2":
                         //view armor 2 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 2)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 2);
                         break;
                     case "a3":
                         //view armor 3 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 3)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 3);
                         break;
                     case "a4":
                         //view armor 4 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 4)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 4);
                         break;
                     case "a5":
                         //view armor 5 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 5)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 5);
                         break;
                     case "a6":
                         //view armor 6 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 6)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 6);
                         break;
                     case "a7":
                         //view armor 7 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 7)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 7);
                         break;
                     case "a8":
                         //view armor 8 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 8)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 8);
                         break;
                     case "a9":
                         //view armor 9 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 9)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 9);
                         break;
                     case "a10":
                         //view armor 10 and all its details 
-                        foreach (Armor.ArmorStruct tmpArmor in armorList)
-                        {
-                            armorNumber++;
-                            if (armorNumber == 10)
-                            {
-                                Console.WriteLine($"____________________\n- {tmpArmor.Name} -\n" +
-                                    $"Type: {tmpArmor.Type}\n" +
-                                    $"Description:\n{tmpArmor.Info}\n" +
-                                    $"Defense: {tmpArmor.Defense} pts\n" +
-                                    $"Rarity: {tmpArmor.Rarity}\n" +
-                                    $"Cost: {tmpArmor.Price} units\n");
-                                armorNumber = 0;
-                                break;
-                            }
-                        }
+                        ViewAndBuyArmor(armorList, myArmors, 10);
                         break;
                     #endregion
+
+                    case "sell a1":
+                        PlayerArmorInv(myArmors);
+                        SellArmor(myArmors, armorList, 1);
+                        break;
+                    case "sell a2":
+                        PlayerArmorInv(myArmors);
+                        SellArmor(myArmors, armorList, 2);
+                        break;
 
                     //full shop inventory, no buying
                     case "shop":
@@ -336,10 +207,10 @@ namespace ConsoleProjTemp
                     case "help":
                     case "commands":
                     case "inputs":
-                        Console.WriteLine($"__________________\nThe current valid commands you can type in are:\n" +
+                        Prompt($"__________________\nThe current valid commands you can type in are:\n" +
                             $"-armor, shield, defense - shows current shop armor inventory \n" +
                             $"-bag, i, inv, inventory, - shows current player inventory \n" +
-                            $"-weapons, show weap - shows current shop weapon inventory \n" +
+                            $"-weapons, show weap, weap - shows current shop weapon inventory \n" +
                             $"-shop, buy, purchase - shows the full available inventory \n" +
                             $"-help, commands, inputs - shows the help screen \n" +
                             $"-quit, leave, bye - closes the shop and window \n");
@@ -350,136 +221,271 @@ namespace ConsoleProjTemp
                     case "quit":
                     case "leave":
                     case "bye":
-                        Console.WriteLine($"Thanks for shopping with us! Please come again.");
+                        Prompt($"Thanks for shopping with us! Please come again.");
                         gameRunning = false;
                         break;
-
-                        
-
-
                 }
-
-
-
                
             }
-
             Console.ReadKey();
         }
 
 
-
+        // shows all weapon names and numbers
         static public void ShowWeapons(List<Weapon.WeaponStruct> weaponList)
         {
-            Console.WriteLine($"\n");
-            Console.WriteLine($"\n----WEAPONS----\n     vvvvv    \n");
+
+            Prompt($"\n");
+            Prompt($"\n----WEAPONS----\n     vvvvv    \n");
             foreach (Weapon.WeaponStruct tmpWeap in weaponList)
             {
 
                 weaponNumber++;
-                Console.WriteLine($"-{tmpWeap.Name}- {weaponNumber}\n_______________");
+                Prompt($"-{tmpWeap.Name}- w{weaponNumber}\n_______________");
 
             }
             weaponNumber = 0;
-            Console.WriteLine($"\n     ^^^^^    \n----WEAPONS----\n");
+            Prompt($"\n     ^^^^^    \n----WEAPONS----\n");
 
             if (playerBank <= 0)
             {
                 playerBank = 0;
-                Console.WriteLine($"Uh oh! You don't have any units left..\nPlease sell something or come back when you have some more units!");
+                Prompt($"Uh oh! You don't have any units left..\nPlease sell something or come back when you have some more units!");
                 
             }
         }
 
+        //shows all armor names and numbers
         static public void ShowArmor(List<Armor.ArmorStruct> armorList)
         {
-            Console.WriteLine($"\n");
-            Console.WriteLine($"\n----ARMOR----\n     vvv    \n");
+            Prompt($"\n");
+            Prompt($"\n----ARMOR----\n     vvv    \n");
             foreach (Armor.ArmorStruct tmpArmor in armorList)
             {
                 armorNumber++;
-                Console.WriteLine($"-{tmpArmor.Name}- {armorNumber}\n_______________");
+                Prompt($"-{tmpArmor.Name}- a{armorNumber}\n_______________");
 
             }
             armorNumber = 0;
-            Console.WriteLine($"\n     ^^^    \n----ARMOR----\n");
+            Prompt($"\n     ^^^    \n----ARMOR----\n");
 
             if (playerBank <= 0)
             {
                 playerBank = 0;
-                Console.WriteLine($"Uh oh! You don't have any money left..\nPlease sell something or come back when you aren't broke!");
+                Prompt($"Uh oh! You don't have any units left..\nPlease sell something or come back when you have some more units!");
                 
             }
         }
 
-        static public void PlayerInventory(List<Weapon.WeaponStruct> myWeaps)
+        // shows all information of weapons in player inv
+        static public void PlayerWeaponInv(List<Weapon.WeaponStruct> myWeaps)
         {
-            Console.WriteLine($"\n----MY INVENTORY----\n     vvvvvvvv    \n");
+            Prompt($"\n----MY WEAPONS----\n     vvvvvvvv    \n");
             foreach (Weapon.WeaponStruct myInv in myWeaps)
             {
-                Console.WriteLine($"____________________\n- {myInv.Name} -\n" +
+                Prompt($"____________________\n- {myInv.Name} -\n" +
                         $"Type: {myInv.Type}\n" +
                         $"Description:\n{myInv.Info}\n" +
                         $"Damage: {myInv.AttackPwr} pts\n" +
                         $"Rarity: {myInv.Rarity}\n" +
-                        $"Cost: {myInv.Price} units\n");
+                        $"Cost: {myInv.Price} units");
             }
-            Console.WriteLine($"\n     ^^^^^^^^    \n----MY INVENTORY----\n");
+            Prompt($"\n     ^^^^^^^^    \n----MY WEAPONS----\n");
         }
 
-        static public void ViewAndPurchase(List<Weapon.WeaponStruct> weaponList, List<Weapon.WeaponStruct> myWeaps)
+        // shows all information of armor in player inv
+        static public void PlayerArmorInv(List<Armor.ArmorStruct> myArmors)
         {
-            foreach (Weapon.WeaponStruct tmpWeap in weaponList)
+            int numOfArmor = 0;
+            Prompt($"\n----MY ARMOR----\n     vvvvvvvv    \n");
+            foreach (Armor.ArmorStruct myInv in myArmors)
             {
-                weaponNumber++;
-                if (weaponNumber == 1)
+                numOfArmor++;
+                Prompt($"____________________\n- {myInv.Name} -\n" +
+                        $"Type: {myInv.Type}\n" +
+                        $"Description:\n{myInv.Info}\n" +
+                        $"Defense: {myInv.Defense} pts  -a{numOfArmor}\n" +
+                        $"Rarity: {myInv.Rarity}\n" +
+                        $"Cost: {myInv.Price} units");
+            }
+            numOfArmor = 0;
+            Prompt($"\n     ^^^^^^^^    \n----MY ARMOR----\n");
+        }
+
+        // method to view a speciic weapon and asks to purchase
+        static public void ViewAndBuyWeapon(List<Weapon.WeaponStruct> weaponList, List<Weapon.WeaponStruct> myWeaps, int indexNum)
+        {
+            Weapon.WeaponStruct tmpWeap = weaponList[indexNum -1];
+
+
+            Prompt($"____________________\n- {tmpWeap.Name} -\n" +
+                $"Type: {tmpWeap.Type}\n" +
+                $"Description:\n{tmpWeap.Info}\n" +
+                $"Damage: {tmpWeap.AttackPwr} pts\n" +
+                $"Rarity: {tmpWeap.Rarity}\n" +
+                $"Cost: {tmpWeap.Price} units\n");
+            
+            if (playerBank <= 0)
+            {
+                playerBank = 0;
+                Prompt($"Uh oh! You don't have any units left..\nPlease sell something or come back when you have some more units!");
+                return;
+            }
+            Prompt("Would you like to buy this weapon?");
+            string input = Console.ReadLine();
+            if (input == "n" || input == "N")
+            {
+                return;
+            }
+            if (input != "y")
+            {
+                Prompt($"Oops! Looks like you entered and invalid response. \nPlease select your desired weapon and try again\n" +
+                    $"*Remember*: \nenter 'y' or 'Y' to buy item\nenter 'n' or 'N' to decline\n___________________");
+                return;
+            }
+            if (input == "y" || input == "Y")
+            {
+                if (playerBank < tmpWeap.Price)
                 {
-                    Console.WriteLine($"____________________\n- {tmpWeap.Name} -\n" +
-                        $"Type: {tmpWeap.Type}\n" +
-                        $"Description:\n{tmpWeap.Info}\n" +
-                        $"Damage: {tmpWeap.AttackPwr} pts\n" +
-                        $"Rarity: {tmpWeap.Rarity}\n" +
-                        $"Cost: {tmpWeap.Price} units\n");
-                    weaponNumber = 0;
-                    if (playerBank <= 0)
-                    {
-                        playerBank = 0;
-                        Console.WriteLine($"Uh oh! You don't have any money left..\nPlease sell something or come back when you aren't broke!");
-                        break;
-                    }
-                    Console.WriteLine("Would you like to buy this weapon?");
-                    string input = Console.ReadLine();
-                    if (input != "y")
-                        break;
-                    if (input == "y" || input == "Y")
-                    {
-                        if (playerBank < tmpWeap.Price)
-                        {
 
-                            Console.WriteLine($"Hey! You dont have any enough units left to purchase that!");
-                            Console.WriteLine($"You have {playerBank} units and this item is {tmpWeap.Price}");
-                            break;
-                        }
-                        else
-                        {
-                            weaponList.Remove(tmpWeap);
-                            myWeaps.Add(tmpWeap);
+                    Prompt($"Hey! You dont have any enough units left to purchase that!");
+                    Prompt($"You have {playerBank} units and this item is {tmpWeap.Price}");
+                    return;
+                }
+                else
+                {
+                    weaponList.Remove(tmpWeap);
+                    myWeaps.Add(tmpWeap);
 
-                            playerBank -= tmpWeap.Price;
-                            shopBank += tmpWeap.Price;
+                    playerBank -= tmpWeap.Price;
+                    shopBank += tmpWeap.Price;
 
 
-                            Console.WriteLine($"You now own {tmpWeap.Name}\nYou currently have {playerBank} units left in your bank\n");
-                            break;
-                        }
-                    }
-                    if (input == "n" || input == "N")
-                    {
-                        break;
-                    }
+                    Prompt($"You now own {tmpWeap.Name}!\n" +
+                        $"You currently have {playerBank} units left in your bank\n________________");
+                    return;
+                }
+            }
+            
+                
+            
+
+            
+        }
+
+        // method to view a speciic armor and asks to purchase
+        static public void ViewAndBuyArmor(List<Armor.ArmorStruct> armorList, List<Armor.ArmorStruct> myArmors, int indexNum)
+        {
+            Armor.ArmorStruct tmpArmor = armorList[indexNum-1];
+            Prompt($"____________________\n- {tmpArmor.Name} -\n" +
+                $"Type: {tmpArmor.Type}\n" +
+                $"Description:\n{tmpArmor.Info}\n" +
+                $"Defense: {tmpArmor.Defense} pts\n" +
+                $"Rarity: {tmpArmor.Rarity}\n" +
+                $"Cost: {tmpArmor.Price} units\n");
+            
+            if (playerBank <= 0)
+            {
+                playerBank = 0;
+                Prompt($"Uh oh! You don't have any units left..\nPlease sell something or come back when you have some more units!");
+                return;
+            }
+
+            Prompt("Would you like to buy this for protection?");
+            string input = Console.ReadLine();
+            if (input == "n" || input == "N")
+            {
+                return;
+            }
+            if (input != "y")
+            {
+                Prompt($"Oops! Looks like you entered and invalid response. \nPlease select your desired method of defense and try again\n" +
+                       $"*Remember*: \nenter 'y' or 'Y' to buy item\nenter 'n' or 'N' to decline\n___________________\n");
+                return;
+            }
+            if (input == "y" || input == "Y")
+            {
+                if (playerBank < tmpArmor.Price)
+                {
+
+                    Prompt($"Hey! You dont have any enough units left to purchase that!");
+                    Prompt($"You have {playerBank} units and this item is {tmpArmor.Price}");
+                    return;
+                }
+                else
+                {
+                    armorList.Remove(tmpArmor);
+                    myArmors.Add(tmpArmor);
+
+                    playerBank -= tmpArmor.Price;
+                    shopBank += tmpArmor.Price;
+
+
+                    Prompt($"You now own {tmpArmor.Name}!\n" +
+                        $"You currently have {playerBank} units left in your bank\n___________________\n");
+                    return;
+                }
+            }
+
+        }
+
+        // simple method for console.writeline
+        static public void Prompt(string prompt)
+        {                      
+            Console.WriteLine(prompt);    
+        }
+        
+        // method to sell a specific armor
+        static public void SellArmor(List<Armor.ArmorStruct> myArmorInv,List<Armor.ArmorStruct> armorList, int indexNum)
+        {
+            Armor.ArmorStruct tmpArmor = myArmorInv[indexNum - 1];
+            
+            Prompt($"____________________\n- {tmpArmor.Name} -\n" +
+                $"Type: {tmpArmor.Type}\n" +
+                $"Description:\n{tmpArmor.Info}\n" +
+                $"Defense: {tmpArmor.Defense} pts\n" +
+                $"Rarity: {tmpArmor.Rarity}\n" +
+                $"Cost: {tmpArmor.Price} units\n");
+
+            Prompt($"Would you like to sell?");
+            string input = Console.ReadLine();
+            if (input == "n" || input == "N")
+            {
+                return;
+            }
+            if (input != "y")
+            {
+                Prompt($"Oops! Looks like you entered and invalid response. \nPlease try again\n" +
+                       $"*Remember*: \nenter 'y' or 'Y' to sell item\nenter 'n' or 'N' to decline\n___________________\n");
+                return;
+            }
+            if (input == "y" || input == "Y")
+            {
+                if (shopBank < tmpArmor.Price)
+                {
+
+                    Prompt($"Yikes. I dont have enough units to buy that back.");
+                    Prompt($"The item is {tmpArmor.Price} units and I have only have {shopBank} ");
+                    return;
+                }
+                else
+                {
+                    myArmorInv.Remove(tmpArmor);
+                    armorList.Add(tmpArmor);
+
+                    playerBank += tmpArmor.Price;
+                    shopBank -= tmpArmor.Price;
+
+                    Prompt($"You sold {tmpArmor.Name} for {tmpArmor.Price} units!\n" +
+                        $"You now have {playerBank} units in your bank\n___________________\n");
+                    Prompt($"The shop bank is now at {shopBank}");
+                    return;
                 }
             }
         }
+
+
+
 
         //private static Weapon[] LoadWeapon(string filename)
         //{
