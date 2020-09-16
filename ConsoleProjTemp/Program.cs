@@ -92,8 +92,8 @@ namespace ConsoleProjTemp
                         PlayerArmorInv(myArmors);
                         PlayerWeaponInv(myWeaps);
                         break;
-
-                    #region weaponNumber Cases
+                         
+                    #region ViewAndBuyWeapon Cases
                     case "w1":
                         //view weapon 1 and all its details 
 
@@ -137,6 +137,41 @@ namespace ConsoleProjTemp
                         break;
                     #endregion
 
+                    #region SellWeapon Cases
+                    case "sell w1":
+                        SellWeap(myWeaps, weaponList, 1);
+                        break;
+                    case "sell w2":
+                        SellWeap(myWeaps, weaponList, 2);
+                        break;
+                    case "sell w3":
+                        SellWeap(myWeaps, weaponList, 3);
+                        break;
+                    case "sell w4":
+                        SellWeap(myWeaps, weaponList, 4);
+                        break;
+                    case "sell w5":
+                        SellWeap(myWeaps, weaponList, 5);
+                        break;
+                    case "sell w6":
+                        SellWeap(myWeaps, weaponList, 6);
+                        break;
+                    case "sell w7":
+                        SellWeap(myWeaps, weaponList, 7);
+                        break;
+                    case "sell w8":
+                        SellWeap(myWeaps, weaponList, 8);
+                        break;
+                    case "sell w9":
+                        SellWeap(myWeaps, weaponList, 9);
+                        break;
+                    case "sell w10":
+                        SellWeap(myWeaps, weaponList, 10);
+                        break;
+
+                    #endregion
+
+
                     // shop and show armor
                     case "armor":
                     case "shield":
@@ -144,7 +179,7 @@ namespace ConsoleProjTemp
                         ShowArmor(armorList);
                         break;
 
-                    #region armorNumber Cases
+                    #region ViewAndBuyArmor Cases
                     case "a1":
                         //view armor 1 and all its details 
                         ViewAndBuyArmor(armorList, myArmors, 1);
@@ -187,14 +222,41 @@ namespace ConsoleProjTemp
                         break;
                     #endregion
 
-                    case "sell a1":
-                        PlayerArmorInv(myArmors);
+                    #region SellArmor cases
+
+
+                    case "sell a1":                       
                         SellArmor(myArmors, armorList, 1);
                         break;
                     case "sell a2":
-                        PlayerArmorInv(myArmors);
                         SellArmor(myArmors, armorList, 2);
                         break;
+                    case "sell a3":
+                        SellArmor(myArmors, armorList, 3);
+                        break;
+                    case "sell a4":
+                        SellArmor(myArmors, armorList, 4);
+                        break;
+                    case "sell a5":
+                        SellArmor(myArmors, armorList, 5);
+                        break;
+                    case "sell a6":
+                        SellArmor(myArmors, armorList, 6);
+                        break;
+                    case "sell a7":
+                        SellArmor(myArmors, armorList, 7);
+                        break;
+                    case "sell a8":
+                        SellArmor(myArmors, armorList, 8);
+                        break;
+                    case "sell a9":
+                        SellArmor(myArmors, armorList, 9);
+                        break;
+                    case "sell a10":
+                        SellArmor(myArmors, armorList, 10);
+                        break;
+
+                    #endregion
 
                     //full shop inventory, no buying
                     case "shop":
@@ -212,8 +274,8 @@ namespace ConsoleProjTemp
                             $"-bag, i, inv, inventory, - shows current player inventory \n" +
                             $"-weapons, show weap, weap - shows current shop weapon inventory \n" +
                             $"-shop, buy, purchase - shows the full available inventory \n" +
-                            $"-help, commands, inputs - shows the help screen \n" +
-                            $"-quit, leave, bye - closes the shop and window \n");
+                            $"-help, h, instruction - shows the help screen \n" +
+                            $"-esc, quit, leave, bye - closes the shop and window \n");
                         break;
 
                     // quit and esc commands
@@ -301,10 +363,10 @@ namespace ConsoleProjTemp
             foreach (Armor.ArmorStruct myInv in myArmors)
             {
                 numOfArmor++;
-                Prompt($"____________________\n- {myInv.Name} -\n" +
+                Prompt($"____________________\n- {myInv.Name} - a{numOfArmor}\n" +
                         $"Type: {myInv.Type}\n" +
                         $"Description:\n{myInv.Info}\n" +
-                        $"Defense: {myInv.Defense} pts  -a{numOfArmor}\n" +
+                        $"Defense: {myInv.Defense} pts\n" +
                         $"Rarity: {myInv.Rarity}\n" +
                         $"Cost: {myInv.Price} units");
             }
@@ -436,6 +498,8 @@ namespace ConsoleProjTemp
         }
         
         // method to sell a specific armor
+        // TODO: Error handling for no armor to sell
+        
         static public void SellArmor(List<Armor.ArmorStruct> myArmorInv,List<Armor.ArmorStruct> armorList, int indexNum)
         {
             Armor.ArmorStruct tmpArmor = myArmorInv[indexNum - 1];
@@ -447,7 +511,7 @@ namespace ConsoleProjTemp
                 $"Rarity: {tmpArmor.Rarity}\n" +
                 $"Cost: {tmpArmor.Price} units\n");
 
-            Prompt($"Would you like to sell?");
+            Prompt($"Would you like to sell this item?");
             string input = Console.ReadLine();
             if (input == "n" || input == "N")
             {
@@ -456,7 +520,7 @@ namespace ConsoleProjTemp
             if (input != "y")
             {
                 Prompt($"Oops! Looks like you entered and invalid response. \nPlease try again\n" +
-                       $"*Remember*: \nenter 'y' or 'Y' to sell item\nenter 'n' or 'N' to decline\n___________________\n");
+                       $"*Remember*: \nenter 'y' or 'Y' to sell selected item\nenter 'n' or 'N' to decline\n___________________\n");
                 return;
             }
             if (input == "y" || input == "Y")
@@ -483,6 +547,58 @@ namespace ConsoleProjTemp
                 }
             }
         }
+
+        // method to sell a weapon
+        // TODO: Error handling for no weap to sell
+        static public void SellWeap(List<Weapon.WeaponStruct> myWeapInv, List<Weapon.WeaponStruct> weaponList, int indexNum)
+        {
+            Weapon.WeaponStruct tmpWeap = weaponList[indexNum - 1];
+
+            Prompt($"____________________\n- {tmpWeap.Name} -\n" +
+                $"Type: {tmpWeap.Type}\n" +
+                $"Description:\n{tmpWeap.Info}\n" +
+                $"Damage: {tmpWeap.AttackPwr} pts\n" +
+                $"Rarity: {tmpWeap.Rarity}\n" +
+                $"Cost: {tmpWeap.Price} units\n");
+
+            Prompt($"Would you like to sell this item?");
+            string input = Console.ReadLine();
+
+            if (input == "n" || input == "N")
+            {
+                return;
+            }
+            if (input != "y")
+            {
+                Prompt($"Oops! Looks like you entered and invalid response. \nPlease try again\n" +
+                       $"*Remember*: \nenter 'y' or 'Y' to sell selected item\nenter 'n' or 'N' to decline\n___________________\n");
+                return;
+            }
+            if (input == "y" || input == "Y")
+            {
+                if ( shopBank < tmpWeap.Price)
+                {
+                    Prompt($"Yikes. I dont have enough units to buy that back.");
+                    Prompt($"The item is {tmpWeap.Price} units and I have only have {shopBank} units");
+                    Prompt($"Sorry! Maybe if you buy something from me, I will have enough units then");
+                    return;
+                }
+                else
+                {
+                    myWeapInv.Remove(tmpWeap);
+                    weaponList.Add(tmpWeap);
+
+                    playerBank += tmpWeap.Price;
+                    shopBank -= tmpWeap.Price;
+
+                    Prompt($"You sold {tmpWeap.Name} for {tmpWeap.Price} units!\n" +
+                        $"You now have {playerBank} units in your bank\n___________________\n");
+                    Prompt($"The shop bank is now at {shopBank}");
+                }
+            }
+        }
+
+
 
 
 
