@@ -56,14 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Armor.cs" />
-    <Compile Include="BodySuit.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="Melee.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ranged.cs" />
-    <Compile Include="Shield.cs" />
     <Compile Include="Weapon.cs" />
   </ItemGroup>
   <ItemGroup>

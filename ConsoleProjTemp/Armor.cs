@@ -26,10 +26,5 @@ namespace ConsoleProjTemp
             public int Price { get => price; set => price = value; }
         }
 
-        //public override string ToString()
-        //{
-        //    return $"____________________\n- {name} -\nType: {type}\nDescription:\n{info}\nDefense: {defense} pts\nRarity: {rarity}\nCost: {price} units\n";
-        //}
-        
     }
 }

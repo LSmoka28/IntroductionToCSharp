@@ -58,14 +58,8 @@ namespace ConsoleProjTemp
             //convert weapon and armor array to list
             List<Weapon.WeaponStruct> weaponList = shopWeapInv.ToList<Weapon.WeaponStruct>();
             List<Armor.ArmorStruct> armorList = shopArmorInv.ToList<Armor.ArmorStruct>();
-            
-            
-
-
-            //load csvs of inventory
-            //Weapon[] shopWeapons = LoadWeapon("WeaponsSpread1.csv");
-            //Armor[] shopArmor = LoadArmor("armor.csv");
-           
+                      
+                       
             bool gameRunning = true;
 
             //store intro message
@@ -597,123 +591,6 @@ namespace ConsoleProjTemp
                 }
             }
         }
-
-
-
-
-
-
-        //private static Weapon[] LoadWeapon(string filename)
-        //{
-        //    Weapon[] tmpArr;
-
-        //    string[] lines = File.ReadAllLines(filename);
-
-        //    tmpArr = new Weapon[lines.Length - 1];
-        //    for (int i = 1; i < lines.Length; i++)
-        //    {
-        //        string[] lineValues = lines[i].Split(',');
-
-        //        if (lineValues[1] == "Melee")
-        //        {
-        //            //Create melee weapon
-
-        //            Melee tmpMelee = new Melee();
-        //            tmpMelee.name = lineValues[0];
-        //            tmpMelee.type = lineValues[1];
-        //            tmpMelee.info = lineValues[2];
-        //            tmpMelee.rarity = lineValues[4];
-
-        //            if (lineValues[3] != "")
-        //            {
-        //                int.TryParse(lineValues[3], out tmpMelee.attackPwr);
-        //            }
-        //            if (lineValues[5] != "")
-        //            {
-        //                int.TryParse(lineValues[5], out tmpMelee.price);
-        //            }
-        //            tmpArr[i - 1] = tmpMelee;
-
-        //        }
-        //        else
-        //        {
-        //            //ranged if not melee
-        //            Ranged tmpRanged = new Ranged();
-        //            tmpRanged.name = lineValues[0];
-        //            tmpRanged.type = lineValues[1];
-        //            tmpRanged.info = lineValues[2];
-        //            tmpRanged.rarity = lineValues[4];
-
-        //            if (lineValues[3] != "")
-        //            {
-        //                int.TryParse(lineValues[3], out tmpRanged.attackPwr);
-        //            }
-        //            if (lineValues[5] != "")
-        //            {
-        //                int.TryParse(lineValues[5], out tmpRanged.price);
-        //            }
-        //            tmpArr[i - 1] = tmpRanged;
-        //        }
-
-        //    }
-        //    return tmpArr;
-        //}
-
-
-        //private static Armor[] LoadArmor(string filename)
-        //{
-        //    Armor[] tmpArr;
-
-        //    string[] lines = File.ReadAllLines(filename);
-
-        //    tmpArr = new Armor[lines.Length - 1];
-        //    for (int i =1; i < lines.Length; i++)
-        //    {
-        //        string[] lineVal = lines[i].Split(',');
-        //        if (lineVal[1] == "Body")
-        //        {
-        //            BodySuit tmpBody = new BodySuit();
-        //            tmpBody.name = lineVal[0];
-        //            tmpBody.type = lineVal[1];
-        //            tmpBody.info = lineVal[2];
-        //            tmpBody.rarity = lineVal[4];
-
-        //            if (lineVal[3] != "")
-        //            {
-        //                int.TryParse(lineVal[3], out tmpBody.defense);
-        //            }
-        //            if (lineVal[5] != "")
-        //            {
-        //                int.TryParse(lineVal[5], out tmpBody.price);
-        //            }
-        //            tmpArr[i - 1] = tmpBody;
-        //        }
-
-        //        else
-        //        {
-        //            Shield tmpShield = new Shield();
-        //            tmpShield.name = lineVal[0];
-        //            tmpShield.type = lineVal[1];
-        //            tmpShield.info = lineVal[2];
-        //            tmpShield.rarity = lineVal[4];
-
-        //            if (lineVal[3] != "")
-        //            {
-        //                int.TryParse(lineVal[3], out tmpShield.defense);
-        //            }
-        //            if (lineVal[5] != "")
-        //            {
-        //                int.TryParse(lineVal[5], out tmpShield.price);
-        //            }
-        //            tmpArr[i - 1] = tmpShield;
-
-        //        }
-
-        //    }
-        //    return tmpArr;
-        //}
-
-
 
     }
 
